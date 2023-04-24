@@ -88,19 +88,28 @@
         <script>
 
       var isClose=true;
-        const stopwords = ["of", "the", "a", "an", "any", "is", "can", "who", "what", "why", "whom"];
+        const stopwords = ["of", "the", "a", "an", "any", "is", "can", "who", "what", "why", "whom","are"];
         var editor = "sorts\n" +
-            "    #disease = {cholera, chikungunya}.\n" +
-            "    #pains = {diarrhea, vomiting, dehydration, fever, jointpain, headache}.\n" +
+            "    #disease = {cholera, chikungunya, diarrhea, covid,  pneumonia}.\n" +
+            "    #pains = {diarrhea, vomiting, dehydration, fever, jointpain, headache, bellypain, indigestion, waterystool, cough, lowBreathing, lossOfTaste, difficultyInBreathing, rapidHeartbeat, sweatingshivering}.\n" +
             "predicates\n" +
-            "    symptomsof(#disease, #pains).\n" +
+            "    symptoms(#pains , #disease).\n" +
             "rules\n" +
-            "    symptomsof(cholera, diarrhea).\n" +
-            "    symptomsof(cholera, vomiting).\n" +
-            "    symptomsof(cholera, dehydration).\n" +
-            "    symptomsof(chikungunya, fever).\n" +
-            "    symptomsof(chikungunya,jointpain).\n" +
-            "    symptomsof(chikungunya, headache).";
+            "    symptoms(diarrhea, cholera).\n" +
+            "    symptoms(vomiting, cholera).\n" +
+            "    symptoms(dehydration, cholera).\n" +
+            "    symptoms(jointpain, chikungunya).\n" +
+            "    symptoms(headache,chikungunya).\n" +
+            "    symptoms(fever, chikungunya).\n" +
+            "    symptoms(bellypain, diarrhea).\n" +
+            "    symptoms(indigestion, diarrhea).\n" +
+            "    symptoms(waterystool, diarrhea).\n" +
+            "    symptoms(cough, covid).\n" +
+            "    symptoms(lowBreathing, covid).\n" +
+            "    symptoms(lossOfTaste, covid).\n" +
+            "    symptoms(difficultyInBreathing, pneumonia).\n" +
+            "    symptoms(rapidHeartbeat, pneumonia).\n" +
+            "    symptoms(sweatingshivering, pneumonia).";
 
         // sorts
         var contstring = editor.split("sorts\n")[1].split("predicates\n");
@@ -310,7 +319,7 @@
 
                             </div>
                             <div class="icon-content">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae error explicabo possimus fugit fuga inventore tenetur natus, </p>
+                                <p>Health care agent chatbot provides individuals a brief overview about the disease with the symptoms they have.</p>
                             </div>
                         </div>
 
@@ -319,7 +328,7 @@
                                 <i class="fas fa-user-md"></i>
                             </div>
                             <div class="icon-content">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae error explicabo possimus fugit fuga inventore tenetur natus, </p>
+                                <p>Health care agent chatbot provides individuals a brief overview about the disease with the symptoms they have. </p>
                             </div>
                         </div>
                     </div>
